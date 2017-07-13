@@ -1,0 +1,26 @@
+{
+  "name": "princeton-algorithms",
+  "version": "0.0.1",
+  "description": "Practice space for Princeton algorithms MOOC",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d build",
+    "start": "node build/index.js",
+    "prestart": "npm run build",
+    "flow": "flow"
+  },
+  "author": "Kia Farhang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.24.1",
+    "flow-bin": "^0.48.0"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
