@@ -1,8 +1,21 @@
-export class Queue<T> {
+import { Iterable } from '../Interfaces/Iterable';
+
+export class Queue<T> implements Iterable {
 	private items: T[];
 
 	constructor(){
 		this.items = [];
+	}
+
+	[Symbol.iterator](){
+		let counter = 0;
+		let data = this.items;
+
+		return{
+			next(){
+				return {done: counter === data.length ? true : false, value: data[counter++]};
+			}
+		}
 	}
 
 	enqueue(item: T): void{

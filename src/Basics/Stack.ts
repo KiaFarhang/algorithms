@@ -1,4 +1,6 @@
-export class Stack<T> {
+import { Iterable } from '../Interfaces/Iterable';
+
+export class Stack<T> implements Iterable{
 	private items: Array<T>;
 	
 	constructor(){
@@ -6,11 +8,11 @@ export class Stack<T> {
 	}
 
 	[Symbol.iterator](){
-		let counter = 0;
+		let counter = this.items.length -1;
 		let data = this.items;
 		return {
 			next(){
-				return {done: counter === data.length ? true : false, value: data[counter++]};
+				return {done: counter < 0 ? true : false, value: data[counter--]};
 			}
 		}
 	}
