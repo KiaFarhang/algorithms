@@ -1,34 +1,38 @@
-// @flow
+import { UnionFindObject } from './UnionFindObject';
+import { Stack } from '../Basics/Stack';
 
-'use strict';
-
-import UnionFindObject from './UnionFindObject';
-
-export default class WeightedUnion {
-    constructor(n) {
+export default class WeightedPathCompression {
+    data: any[];
+    
+    constructor(n: number) {
         this.data = [];
 
-        for (let i = 0; i < n; i++) {
+        for (let i: number = 0; i < n; i++) {
             this.data.push(new UnionFindObject(i, i));
         }
     }
 
-    connected(p, q) {
+    connected(p: number, q: number): boolean {
         return this.find(this.data[p].id) === this.find(this.data[q].id);
     }
 
-    find(p) {
-        let count = 1;
+    find(p: number) {
+        let count: number = 1;
+        let touchedNodes = new Stack();
         while (this.data[p].id !== this.data[p].component) {
+            touchedNodes.push(this.data[p].id);
             p = this.data[this.data[p].id].component;
             count++;
             this.data[p].componentLength = count;
-            // console.log(this.data[p], this.data[p].componentLength);
+        }
+        while (touchedNodes.size() > 0){
+            let node: any = touchedNodes.pop();
+            this.data[node].component = p;
         }
         return p;
     }
 
-    union(p, q) {
+    union(p: number, q: number): void {
         let pRoot = this.find(this.data[p].id);
         let qRoot = this.find(this.data[q].id);
 

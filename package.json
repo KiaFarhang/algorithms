@@ -4,9 +4,9 @@
   "description": "Practice space for Princeton algorithms MOOC",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel src -d build",
-    "start": "node build/index.js",
+    "build": "tsc",
     "prestart": "npm run build",
+    "start": "node build/index.js",
     "flow": "flow"
   },
   "author": "Kia Farhang",
@@ -18,7 +18,8 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.24.1",
-    "flow-bin": "^0.48.0"
+    "flow-bin": "^0.48.0",
+    "typescript": "^2.4.2"
   },
   "dependencies": {
     "dotenv": "^4.0.0"

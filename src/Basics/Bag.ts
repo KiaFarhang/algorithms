@@ -1,23 +1,19 @@
-//@flow
-
-'use strict';
-
-class Bag {
+export class Bag<T> {
+    private items: T[];
+    
     constructor() {
         this.items = [];
     }
 
-    add(item: any) {
+    add(item: T): void {
         this.items.push(item);
     }
 
-    isEmpty() {
+    isEmpty(): boolean{
         return this.items.length === 0;
     }
 
-    size() {
+    size(): number{
         return this.items.length;
     }
 }
-
-export default Bag;

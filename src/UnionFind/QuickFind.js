@@ -4,7 +4,7 @@
 
 import UnionFindObject from './UnionFindObject';
 
-export default class UnionFind {
+export default class QuickFind {
     constructor(n) {
         this.data = [];
 

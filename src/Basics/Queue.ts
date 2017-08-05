@@ -1,29 +1,24 @@
-//@flow
-
-'use strict';
-
-class Queue {
+export class Queue<T> {
+	private items: T[];
 
 	constructor(){
 		this.items = [];
 	}
 
-	enqueue(item: any){
+	enqueue(item: T): void{
 		this.items.push(item);
 	}
 
-	dequeue(){
+	dequeue(): T{
 		return this.items.shift();
 	}
 
-	isEmpty(){
+	isEmpty(): boolean{
 		return this.items.length === 0;
 	}
 
-	size(){
+	size(): number{
 		return this.items.length;
 	}
     
 }
-
-export default Queue;
