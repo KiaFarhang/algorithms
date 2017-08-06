@@ -1,7 +1,7 @@
 import { Iterable } from '../Interfaces/Iterable';
 import { Node } from './Node';
 
-export class LinkedListStack<T> {
+export class LinkedListStack<T> implements Iterable {
     private top: Node;
     
     constructor() {
@@ -12,11 +12,10 @@ export class LinkedListStack<T> {
         let current: Node = this.top;
         return{
             next(){
-                let toReturn: Node = current;
-                
                 if (current === null){
-                    return {done: true, value: toReturn};
+                    return {done: true, value: undefined};
                 }else{
+                    let toReturn: T = current.item;
                     current = current.next;                    
                     return {done: false, value: toReturn};
                 }
@@ -31,8 +30,10 @@ export class LinkedListStack<T> {
         this.top.next = oldtop;
     }
 
-    pop(): T{
-    	let toReturn: any = this.top.item;
+    pop(): T | null{
+        if (this.top === null) return null;
+        
+    	let toReturn: T = this.top.item;
     	this.top = this.top.next;
     	return toReturn;
     }
