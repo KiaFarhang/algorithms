@@ -1,26 +1,43 @@
+import { Iterable } from '../Interfaces/Iterable';
 import { Node } from './Node';
 
-export class LinkedListStack {
-    first: Node;
+export class LinkedListStack<T> {
+    private top: Node;
     
     constructor() {
-        this.first = null;
+        this.top = null;
     }
 
-    push(item: any): void {
+    [Symbol.iterator](){
+        let current: Node = this.top;
+        return{
+            next(){
+                let toReturn: Node = current;
+                
+                if (current === null){
+                    return {done: true, value: toReturn};
+                }else{
+                    current = current.next;                    
+                    return {done: false, value: toReturn};
+                }
+            }
+        }
+    }
+
+    push(item: T): void {
     	let node = new Node(item);
-        let oldFirst: Node = this.first;
-        this.first = node;
-        this.first.next = oldFirst;
+        let oldtop: Node = this.top;
+        this.top = node;
+        this.top.next = oldtop;
     }
 
-    pop(): any{
-    	let toReturn: any = this.first.item;
-    	this.first = this.first.next;
+    pop(): T{
+    	let toReturn: any = this.top.item;
+    	this.top = this.top.next;
     	return toReturn;
     }
 
     isEmpty(): boolean{
-        return this.first === null;
+        return this.top === null;
     }
 }

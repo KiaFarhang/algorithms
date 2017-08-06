@@ -1,6 +1,6 @@
 export class Node {
-	item: any;
-	next: Node;
+	public item: any;
+	public next: Node;
 	
 	constructor(item: any){
 		this.item = item;
