@@ -8,8 +8,8 @@ export class Bag<T> implements Iterable {
     }
 
     [Symbol.iterator](){
-        let counter = 0;
-        let data = this.items;
+        let counter: number = 0;
+        let data: T[] = this.items;
 
         return{
             next(){

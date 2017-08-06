@@ -8,8 +8,8 @@ export class Stack<T> implements Iterable{
 	}
 
 	[Symbol.iterator](){
-		let counter = this.items.length -1;
-		let data = this.items;
+		let counter: number = this.items.length -1;
+		let data: T[] = this.items;
 		return {
 			next(){
 				return {done: counter < 0 ? true : false, value: data[counter--]};
