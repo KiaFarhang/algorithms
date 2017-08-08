@@ -12,7 +12,7 @@ export class Stack<T> implements Iterable{
 		let data: T[] = this.items;
 		return {
 			next(){
-				return {done: counter < 0 ? true : false, value: data[counter--]};
+				return {done: counter < 0, value: data[counter--]};
 			}
 		}
 	}

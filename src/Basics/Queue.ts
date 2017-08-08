@@ -13,7 +13,7 @@ export class Queue<T> implements Iterable {
 
 		return{
 			next(){
-				return {done: counter === data.length ? true : false, value: data[counter++]};
+				return {done: counter === data.length, value: data[counter++]};
 			}
 		}
 	}
