@@ -3,21 +3,12 @@ import { Bag } from './Basics/Bag';
 import { Queue } from './Basics/Queue';
 import { Deque } from './Basics/Deque';
 import { RandomizedQueue } from './Basics/RandomizedQueue';
+import { Permutation } from './Basics/Permutation';
 import { LinkedListStack } from './LinkedList/LinkedListStack';
 import { LinkedListQueue } from './LinkedList/LinkedListQueue';
 
-let rq = new RandomizedQueue<string>();
+let string = 'a b c d e f g';
 
-rq.enqueue('one');
-rq.enqueue('two');
-rq.enqueue('three');
-rq.enqueue('four');
-rq.enqueue('five');
+let perm = new Permutation();
 
-for (let r of rq){
-	console.log(r);
-}
-
-// for (let r of rq){
-// 	console.log(r);
-// }
+perm.permutate(3, string);
