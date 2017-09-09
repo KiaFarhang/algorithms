@@ -3,14 +3,12 @@ import { SortObject } from './SortObject';
 export class InsertionSort{
 
 	public static sort(array: SortObject<any>[]): SortObject<any>[]{
+
 		for (let i: number = 1; i < array.length; i++){
-			for(let j: number = i; j > 0; j--){
-				if (this.less(array[j], array[j-1])){
-					this.exchange(array, j, j-1);
-				}
+			for(let j: number = i; j > 0 && this.less(array[j], array[j-1]); j--){
+				this.exchange(array, j, j-1);
 			}
 		}
-
 		return array;
 	}
 
