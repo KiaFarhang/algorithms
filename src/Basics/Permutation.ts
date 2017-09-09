@@ -8,7 +8,7 @@ export class Permutation{
 	}
 
 	public permutate(n: number, item: string): void{
-		let arrayOfItems = item.split(' ');
+		let arrayOfItems: string[] = item.split(' ');
 
 		arrayOfItems.forEach((thing: string)=>{
 			this.randomQueue.enqueue(thing);
