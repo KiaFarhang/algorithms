@@ -2,7 +2,7 @@ import 'mocha';
 import * as chai from 'chai';
 const assert = chai.assert;
 
-import { Bag } from '../../../Interfaces/Bag';
+import { IHasItems } from '../../../Interfaces/IHasItems';
 import * as b from './index';
 
 describe('Bag', () => {
@@ -11,10 +11,14 @@ describe('Bag', () => {
             const bag = b.bag<number>();
             assert.property(bag, 'items');
         });
+        it('items is an empty array', () => {
+            const bag = b.bag<Object>();
+            assert.isEmpty(bag.items);
+        });
     });
     describe('add', () => {
         it('returns a bag with one more item than the bag passed in', () => {
-            const bag: Bag<number> = {
+            const bag: IHasItems<number> = {
                 items: [0, 1, 2]
             };
 
