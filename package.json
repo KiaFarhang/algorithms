@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node build/index.js",
-    "flow": "flow"
+    "pretest": "tsc",
+    "test": "mocha build/ --recursive",
+    "prestart": "tsc",
+    "start": "node build/index.js"
   },
   "author": "Kia Farhang",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.0",
     "typescript": "^2.4.2"
   },
   "dependencies": {
