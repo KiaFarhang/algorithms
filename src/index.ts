@@ -16,8 +16,6 @@ import { MergeSort } from './Sorting/MergeSort';
 
 
 
-
-
 // const arrayOf100b: SortObject<number>[] = [];
 
 // for (let i: number = 0; i < 10; i++) {
